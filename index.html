@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SGAS | Login</title>
+    <link rel="stylesheet" href="/css/login.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <main class="login-container">
+        <section class="brand-side">
+            <div class="brand-content">
+                <span class="brand-icon">🎒📚👕</span>
+                <h1>SGAS</h1>
+                <p>Sistema de Gestão de Auxílio Socioeconômico</p>
+            </div>
+        </section>
+
+        <section class="form-side">
+            <div class="form-wrapper">
+                <header>
+                    <h2>Seja bem-vindo!</h2>
+                    <p class="subtitle">Faça login para acessar sua conta.</p>
+                </header>
+
+                <form id="loginForm">
+                    <div class="input-group">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" placeholder="exemplo@email.com" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="senha">Senha</label>
+                        <input type="password" id="senha" placeholder="••••••••" required>
+                    </div>
+
+                    <div class="form-options">
+                        <a href="#" class="forgot-link">Esqueceu sua senha?</a>
+                    </div>
+
+                    <button type="submit" class="btn-login">Entrar</button>
+                </form>
+
+                <footer class="form-footer">
+                    <p>Ainda não tem uma conta? <a href="#">Cadastre-se</a></p>
+                    <small>© 2026 SGAS - Gestão Inteligente</small>
+                </footer>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/auth.js"></script>
+</body>
+</html>

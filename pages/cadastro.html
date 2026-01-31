@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SGAS | Cadastro Socioeconômico</title>
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-content">
+            <span class="logo">SGAS - Sistema de Gestão de Auxílio Socioeconômico</span>
+            <div class="user-info">Bem-vindo, Responsável | <a href="Login.html">Sair</a></div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="stepper">
+            <div class="step active" id="step1-header"><span>1</span> Dados do Responsável</div>
+            <div class="step" id="step2-header"><span>2</span> Dados do Aluno</div>
+            <div class="step" id="step3-header"><span>3</span> Análise de Renda</div>
+        </div>
+
+        <form id="multiStepForm">
+            <section class="form-step active" id="step1">
+                <h2>Dados do Responsável</h2>
+                <div class="grid-form">
+                    <div class="input-group full">
+                        <label>Nome Completo (*)</label>
+                        <input type="text" id="nome_resp class="req" placeholder="Digite o nome completo" required>
+                    </div>
+                    <div class="input-group">
+                        <label>CPF (*)</label>
+                        <input type="text" id="cpf_resp" class="req" placeholder="000.000.000-00" maxlength="11" required>
+                    </div>
+                    <div class="input-group">
+                        <label>RG (*)</label>
+                        <input type="text" id="rg_resp" class="req" placeholder="00.000.000-0" maxlength="9" required>
+                    </div>
+                    <div class="input-group full">
+                        <label>Logradouro (Endereço) (*)</label>
+                        <input type="text" id="end_resp" class="req" placeholder="Rua, Avenida, etc." required>
+                    </div>
+                </div>
+                <div class="actions">
+                    <button type="button" class="btn-next" onclick="nextStep(2)" disabled>Próximo: Dados do Aluno</button>
+                </div>
+            </section>
+
+            <section class="form-step" id="step2">
+                <h2>Dados do Aluno</h2>
+                <div class="grid-form">
+                    <div class="input-group full">
+                        <label>Nome do Aluno (*)</label>
+                        <input type="text" id="nome_aluno" class="req" placeholder="Nome completo do estudante" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Vínculo (*)</label>
+                        <select  id="vinculo_aluno" class="req" required>
+                            <option value="">Selecione</option>
+                            <option value="novo">Aluno Novato</option>
+                            <option value="veterano">Aluno Veterano Sem Beneficio</option>
+                            <option value="veterano">Aluno Veterano Beneficiado</option>
+                            <option value="comunidade">Comunidade</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label>Série/Ano (*)</label>
+                        <select id="serie_aluno" class="req" required>
+                            <option value="">Selecione</option>
+                            <optgroup label="Ensino Fundamental">
+                                <option value="F1">1º Ano</option>
+                                <option value="F2">2º Ano</option>
+                                <option value="F3">3º Ano</option>
+                                <option value="F4">4º Ano</option>
+                                <option value="F5">5º Ano</option>
+                                <option value="F6">6º Ano</option>
+                                <option value="F7">7º Ano</option>
+                                <option value="F8">8º Ano</option>
+                                <option value="F9">9º Ano</option>
+                            </optgroup>
+                            <optgroup label="Ensino Médio">
+                                <option value="M1">1ª Série Médio</option>
+                                <option value="M2">2ª Série Médio</option>
+                                <option value="M3">3ª Série Médio</option>
+                            </optgroup>
+                        </select>
+                    </div>
+                </div>
+                <div class="actions">
+                    <button type="button" class="btn-prev" onclick="prevStep(1)">Voltar</button>
+                    <button type="button" class="btn-next" onclick="nextStep(3)" disabled>Próximo: Análise de Renda</button>
+                </div>
+            </section>
+
+            <section class="form-step" id="step3">
+                <h2>Análise de Renda Familiar</h2>
+                <p>Anexe os documentos obrigatórios para comprovação.</p>
+                
+                <div class="upload-grid">
+                    <div class="upload-card">
+                        <div class="icon">📄</div>
+                        <h4>Holerites</h4>
+                        <p>3 a 6 últimos meses.</p>
+                        <input type="file" id="fileHolerite" class="req-file" hidden required>
+                        <label for="fileHolerite" class="btn-anexar">Anexar Arquivo</label>
+                    </div>
+                    <div class="upload-card">
+                        <div class="icon">📕</div>
+                        <h4>CTPS Digital</h4>
+                        <p>PDF completo dos contratos.</p>
+                        <input type="file" id="fileCTPS" class="req-file" hidden required>
+                        <label for="fileCTPS" class="btn-anexar">Anexar Arquivo</label>
+                    </div>
+                    <div class="upload-card">
+                        <div class="icon">💰</div>
+                        <h4>Relatório CCS</h4>
+                        <p>Extrato do Registrato BCB.</p>
+                        <input type="file" id="fileCCS" class="req-file" hidden required>
+                        <label for="fileCCS" class="btn-anexar">Anexar Arquivo</label>
+                    </div>
+                </div>
+
+                <div class="actions">
+                    <button type="button" class="btn-prev" onclick="prevStep(2)">Voltar</button>
+                    <button type="submit" class="btn-finish" disabled>Finalizar Análise</button>
+                </div>
+            </section>
+        </form>
+    </main>
+
+    <script src="../js/dashboard.js"></script>
+</body>
+</html>
