@@ -12,7 +12,7 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
     // Simulando uma requisição de API (Back-end)
     setTimeout(() => {
         if(email === "adm@fahz.com.br" && senha === "123456") {
-            window.location.href = "cadastro.html";
+            window.location.href = "pages/cadastro.html";
         } else {
             alert("Usuário ou senha inválidos. Tente novamente.");
             button.innerText = "Entrar";
